@@ -1,2 +1,6 @@
 @import './tailwind.css';
 @import './theme.css';
+
+*{
+    font-family: "TikTok Sans", sans;
+}
