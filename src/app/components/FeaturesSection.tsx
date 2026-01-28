@@ -80,7 +80,7 @@ export function FeaturesSection() {
             <Card key={index} className="relative">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <feature.icon className="h-8 w-8 text-blue-500" />
+                  <feature.icon className="h-8 w-8 text-black/70" />
                   <Badge variant="secondary" className="text-xs">
                     {feature.badge}
                   </Badge>

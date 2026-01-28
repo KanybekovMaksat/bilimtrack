@@ -4,45 +4,24 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 const testimonials = [
   {
     content: "Bilimtrack полностью изменил то, как мы организуем учебный процесс. Раньше это был хаос из Excel таблиц, теперь всё в одном месте и доступно в пару кликов.",
-    author: "Айгуль Сарсенова",
+    author: "Рамзан Малабакиев",
     role: "Директор",
-    company: "Центр «Білім»",
-    avatar: "АС"
+    company: "Курсы программирования UstazTech",
+    avatar: "РМ"
   },
   {
     content: "Как преподаватель, я наконец-то могу видеть полную картину по каждому студенту. Оценки, посещаемость, прогресс — всё под рукой. Это экономит огромное количество времени.",
-    author: "Нурлан Жусупов",
-    role: "Преподаватель математики",
-    company: "Лицей №42",
-    avatar: "НЖ"
-  },
-  {
-    content: "Мы используем Bilimtrack для управления нашими онлайн-курсами. Студенты получают все материалы в одном месте, а мы видим их прогресс в реальном времени. Очень удобно!",
-    author: "Дина Амирова",
-    role: "Основатель",
-    company: "EdTech Hub",
-    avatar: "ДА"
-  },
-  {
-    content: "Автоматизация расписания — это просто находка! Раньше мы тратили часы на составление расписания вручную, теперь система всё делает сама с учётом всех пожеланий.",
-    author: "Ерлан Касымов",
-    role: "Завуч",
-    company: "Гимназия «Дарын»",
-    avatar: "ЕК"
-  },
-  {
-    content: "Родители в восторге от того, что могут следить за успехами своих детей онлайн. Прозрачность и доступность информации — это то, чего нам не хватало.",
-    author: "Сауле Бектурова",
-    role: "Администратор",
-    company: "Школа «Мектеп»",
-    avatar: "СБ"
+    author: "Саламат Канатбеков",
+    role: "Преподаватель информатики",
+    company: "Колледж КИТЭ",
+    avatar: "СК"
   },
   {
     content: "Система отчётности в Bilimtrack помогла нам улучшить качество обучения. Мы видим проблемные места и можем оперативно реагировать на них.",
-    author: "Марат Омаров",
-    role: "Декан факультета",
-    company: "КазНУ им. аль-Фараби",
-    avatar: "МО"
+    author: "Гульбахор Ашимжановна",
+    role: "Заведующая отделением",
+    company: "Бишкекский колледж компьютерных систем и технологий",
+    avatar: "ГА"
   }
 ];
 
@@ -68,7 +47,7 @@ export function TestimonialsSection() {
                 <div className="flex items-center space-x-3">
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="" />
-                    <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white">{testimonial.avatar}</AvatarFallback>
+                    <AvatarFallback className="bg-gradient-to-br from-black to-slate-400 text-white">{testimonial.avatar}</AvatarFallback>
                   </Avatar>
                   <div>
                     <div className="font-medium text-sm">{testimonial.author}</div>

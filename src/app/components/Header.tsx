@@ -8,7 +8,7 @@ export function Header() {
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
             <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-              <span className="text-white text-xl font-bold">📚</span>
+             <img src="/logo.svg" alt="" />
             </div>
             <span className="font-semibold text-xl">Bilimtrack</span>
           </div>

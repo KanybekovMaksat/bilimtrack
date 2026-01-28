@@ -21,7 +21,7 @@ const plans = [
   },
   {
     name: "Про",
-    price: "₸15,000",
+    price: "30,000c",
     description: "Для школ и средних учебных заведений",
     features: [
       "До 500 студентов",
@@ -31,9 +31,8 @@ const plans = [
       "Аналитика и отчёты",
       "Оценки и успеваемость",
       "Приоритетная поддержка",
-      "Мобильное приложение"
     ],
-    cta: "Попробовать 14 дней",
+    cta: "Попробовать 60 дней",
     popular: true
   },
   {
@@ -69,9 +68,9 @@ export function PricingSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
-            <Card key={index} className={`relative ${plan.popular ? 'border-blue-500 shadow-lg' : ''}`}>
+            <Card key={index} className={`relative ${plan.popular ? 'border-slate-500 shadow-lg' : ''}`}>
               {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-indigo-600">
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-bl from-black to-slate-500">
                   Популярный
                 </Badge>
               )}

@@ -10,7 +10,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">📚</span>
+               <img src="./logo.svg" alt="" />
               </div>
               <span className="font-semibold text-xl">Bilimtrack</span>
             </div>
@@ -18,13 +18,13 @@ export function Footer() {
               Цифровая экосистема для современного обучения. Управляйте студентами, 
               преподавателями, расписанием и всем учебным процессом в одном месте.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2">
+            {/* <div className="flex flex-col sm:flex-row gap-2">
               <Input 
                 placeholder="Ваш email" 
                 className="max-w-xs"
               />
               <Button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700">Подписаться</Button>
-            </div>
+            </div> */}
           </div>
           
           <div>
