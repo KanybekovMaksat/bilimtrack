@@ -40,7 +40,7 @@ export function HeroSection() {
     <section className="relative py-20 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 text-center">
         <Badge variant="secondary" className="mb-6">
-          🎓 Цифровая платформа для современного образования
+          🎓 Образовательная экосистема
         </Badge>
         <h1 className="mx-auto max-w-4xl text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6">
           Управляйте{' '}
