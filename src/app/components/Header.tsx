@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export function Header() {
   return (
@@ -7,8 +7,8 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-             <img src="/logo.svg" alt="" />
+            <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center">
+              <img src="/logo.svg" alt="" />
             </div>
             <span className="font-semibold text-xl">Bilimtrack</span>
           </div>
@@ -22,18 +22,19 @@ export function Header() {
             <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
               Отзывы
             </a>
-            <a href="#docs" className="text-muted-foreground hover:text-foreground transition-colors">
-              Документация
-            </a>
           </nav>
         </div>
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="hidden md:inline-flex">
-            Войти
+          <Button asChild className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700">
+            <a href="tel:+996552077970">
+              <Phone className="mr-2 h-4 w-4" />
+              Связаться
+            </a>
           </Button>
-          <Button>Попробовать</Button>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-4 w-4" />
+          <Button variant="ghost" size="icon" className="md:hidden" asChild>
+            <a href="tel:+996552077970">
+              <Phone className="h-4 w-4" />
+            </a>
           </Button>
         </div>
       </div>

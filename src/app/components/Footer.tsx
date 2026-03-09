@@ -1,6 +1,5 @@
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -9,65 +8,68 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-               <img src="./logo.svg" alt="" />
+              <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center">
+                <img src="./logo.svg" alt="" />
               </div>
               <span className="font-semibold text-xl">Bilimtrack</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Цифровая экосистема для современного обучения. Управляйте студентами, 
-              преподавателями, расписанием и всем учебным процессом в одном месте.
+              Цифровая система управления обучением. Подключаем, обучаем
+              и сопровождаем — вам остаётся только учить.
             </p>
-            {/* <div className="flex flex-col sm:flex-row gap-2">
-              <Input 
-                placeholder="Ваш email" 
-                className="max-w-xs"
-              />
-              <Button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700">Подписаться</Button>
-            </div> */}
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <a href="tel:+996552077970" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <Phone className="h-4 w-4" />
+                +996 552 077 970
+              </a>
+              <a href="mailto:ourera.soft@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <Mail className="h-4 w-4" />
+                ourera.soft@gmail.com
+              </a>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                Бишкек, Кыргызстан
+              </div>
+            </div>
           </div>
-          
+
           <div>
             <h4 className="font-medium mb-4">Продукт</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Возможности</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Тарифы</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Обновления</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Дорожная карта</a></li>
+              <li><a href="#features" className="hover:text-foreground transition-colors">Возможности</a></li>
+              <li><a href="#pricing" className="hover:text-foreground transition-colors">Тарифы</a></li>
+              <li><a href="#testimonials" className="hover:text-foreground transition-colors">Отзывы</a></li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="font-medium mb-4">Ресурсы</h4>
+            <h4 className="font-medium mb-4">Информация</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Документация</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Руководства</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">База знаний</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Блог</a></li>
+              <li><a href="#how-we-work" className="hover:text-foreground transition-colors">Как мы работаем</a></li>
+              <li><a href="tel:+996552077970" className="hover:text-foreground transition-colors">Связаться с нами</a></li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="font-medium mb-4">Компания</h4>
+            <h4 className="font-medium mb-4">Документы</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">О нас</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Карьера</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Контакты</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Поддержка</a></li>
+              <li><a href="/privacy" className="hover:text-foreground transition-colors">Политика конфиденциальности</a></li>
+              <li><a href="/terms" className="hover:text-foreground transition-colors">Условия использования</a></li>
+              <li><a href="/cookies" className="hover:text-foreground transition-colors">Cookie</a></li>
             </ul>
           </div>
         </div>
-        
+
         <Separator className="my-8" />
-        
+
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
             © 2026 Bilimtrack. Все права защищены.
           </p>
           <div className="flex space-x-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Политика конфиденциальности</a>
-            <a href="#" className="hover:text-foreground transition-colors">Условия использования</a>
-            <a href="#" className="hover:text-foreground transition-colors">Cookie</a>
+            <a href="/privacy" className="hover:text-foreground transition-colors">Конфиденциальность</a>
+            <a href="/terms" className="hover:text-foreground transition-colors">Условия</a>
+            <a href="/cookies" className="hover:text-foreground transition-colors">Cookie</a>
           </div>
         </div>
       </div>

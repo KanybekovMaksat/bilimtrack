@@ -30,10 +30,10 @@ export function TestimonialsSection() {
     <section id="testimonials" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
             Доверяют образовательные учреждения
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
+          <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground">
             Узнайте, как Bilimtrack помогает преподавателям и администраторам управлять учебным процессом эффективнее.
           </p>
         </div>
@@ -47,7 +47,7 @@ export function TestimonialsSection() {
                 <div className="flex items-center space-x-3">
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="" />
-                    <AvatarFallback className="bg-gradient-to-br from-black to-slate-400 text-white">{testimonial.avatar}</AvatarFallback>
+                    <AvatarFallback className="bg-blue-600 text-white">{testimonial.avatar}</AvatarFallback>
                   </Avatar>
                   <div>
                     <div className="font-medium text-sm">{testimonial.author}</div>
