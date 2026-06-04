@@ -16,7 +16,8 @@ import {
   CheckSquare,
   type LucideIcon
 } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface FloatingCard {
   icon: LucideIcon;
@@ -160,8 +161,22 @@ const floatingCards: FloatingCard[] = [
   }
 ];
 
+const stats = [
+  { value: '3500+', label: 'студентов' },
+  { value: '3+',    label: 'заведения' },
+  { value: '1 система', label: 'вместо десяти' },
+];
+
 export function HeroSection() {
   const sceneRef = useRef<HTMLDivElement>(null);
+  const [statIdx, setStatIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setStatIdx((i) => (i + 1) % stats.length);
+    }, 2400);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const scene = sceneRef.current;
@@ -175,7 +190,6 @@ export function HeroSection() {
         const element = card as HTMLElement;
         const time = Date.now() * 0.001;
         const offset = index * 0.7;
-
         const x = Math.sin(time + offset) * 15;
         const y = Math.cos(time + offset * 1.3) * 10;
         const rotate = Math.sin(time * 0.5 + offset) * 3;
@@ -191,119 +205,189 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
-      <div className="container mx-auto px-4 text-center">
-        <Badge variant="secondary" className="mb-6">
-          <Rocket className="h-3.5 w-3.5 mr-1.5" />
-          Платформа для учебных заведений
-        </Badge>
-        <h1 className="mx-auto max-w-4xl text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight mb-6">
+    <section className="relative py-12 lg:py-30 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] rounded-full bg-indigo-500/10 blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-[20%] right-[10%] w-[20%] h-[20%] rounded-full bg-purple-500/5 blur-[80px]"></div>
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10 lg:px-16 relative z-10 text-center">
+
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mx-auto max-w-4xl text-5xl md:text-6xl  lg:text-7xl font-medium tracking-tight mb-8 leading-15"
+        >
           Ваше заведение —{' '}
-          <span className="text-blue-600">
+          <span className="text-gradient">
             полностью цифровое
           </span>{' '}
           за одну неделю
-        </h1>
-        <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground mb-8">
-          Мы подключим Bilimtrack, обучим ваш персонал и оцифруем все процессы —
-          от журнала оценок до рейтинга студентов. Вам не нужно ничего настраивать самим.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        </motion.h1>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mx-auto max-w-2xl text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed opacity-90"
+        >
+          Подключим, обучим, оцифруем. Вам не нужно ничего настраивать самим.
+        </motion.p>
+
+        {/* <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16"
+        >
           <Button
             size="lg"
-            className="w-full sm:w-auto bg-black hover:bg-black/80"
+            className="w-full sm:w-auto h-14 px-8 text-lg font-bold bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 border-0 rounded-2xl"
             asChild
           >
             <a href="tel:+996552077970">
-              <Phone className="mr-2 h-4 w-4" />
+              <Phone className="mr-2 h-5 w-5" />
               Позвонить нам
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+          <Button variant="secondary" size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-bold glass shadow-lg border-primary/10 rounded-2xl text-primary" asChild>
             <a href="#pricing">
               Посмотреть тарифы
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
-        </div>
+        </motion.div> */}
 
         {/* Stats Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
-          <div className="text-center">
-            <div className="text-2xl font-bold">3500+</div>
-            <div className="text-sm text-muted-foreground">активных студентов</div>
-          </div>
-          <div className="h-8 w-px bg-border hidden sm:block"></div>
-          <div className="text-center">
-            <div className="text-2xl font-bold">3+</div>
-            <div className="text-sm text-muted-foreground">учебных заведений</div>
-          </div>
-          <div className="h-8 w-px bg-border hidden sm:block"></div>
-          <div className="text-center">
-            <div className="text-2xl font-bold">24/7</div>
-            <div className="text-sm text-muted-foreground">доступ к данным</div>
-          </div>
-        </div>
-
-
-        {/* === Floating Cards Scene (desktop only) === */}
-        <div className="hidden lg:block relative mx-auto max-w-5xl h-[500px]">
-          <div
-            ref={sceneRef}
-            className="relative w-full h-full"
-          >
-            {/* Central Hub */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-3xl shadow-2xl flex items-center justify-center z-10">
-              <img src="/logo.svg" className="w-full h-full" alt="Bilimtrack" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mb-16"
+        >
+          {/* Mobile: auto-scroll slider */}
+          <div className="sm:hidden flex flex-col items-center gap-3">
+            <div className="h-28 flex items-center justify-center overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={statIdx}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  className="text-center"
+                >
+                  <div className="text-5xl font-bold text-primary">{stats[statIdx].value}</div>
+                  <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider mt-1">{stats[statIdx].label}</div>
+                </motion.div>
+              </AnimatePresence>
             </div>
-
-            {/* Floating Cards */}
-            {floatingCards.map((card, index) => (
-              <div
-                key={index}
-                className="floating-card absolute w-40 bg-card border rounded-xl shadow-lg p-3 transform-gpu transition-shadow duration-300 hover:shadow-xl z-10"
-                style={{
-                  ...card.desktop,
-                }}
-              >
-                <div className="text-[10px] text-muted-foreground mb-2 flex items-center gap-1">
-                  <card.icon className="h-3 w-3" />
-                  {card.label}
-                </div>
-                {card.content}
-              </div>
-            ))}
-
-            {/* Connecting Lines (SVG) */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-10">
-              <line x1="50%" y1="50%" x2="15%" y2="15%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="85%" y2="12%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="10%" y2="80%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="88%" y2="78%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="20%" y2="35%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="22%" y2="65%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-              <line x1="50%" y1="50%" x2="82%" y2="65%" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-            </svg>
-
-            {/* Background Dots */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {[...Array(15)].map((_, i) => (
-                <div
+            {/* <div className="flex items-center gap-1.5">
+              {stats.map((_, i) => (
+                <button
                   key={i}
-                  className="absolute w-1 h-1 bg-blue-500/15 rounded-full animate-pulse"
-                  style={{
-                    left: `${10 + Math.random() * 80}%`,
-                    top: `${10 + Math.random() * 80}%`,
-                    animationDelay: `${Math.random() * 3}s`,
-                    animationDuration: `${2 + Math.random() * 3}s`,
-                  }}
+                  onClick={() => setStatIdx(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === statIdx ? 'w-4 bg-primary' : 'w-1.5 bg-border'
+                  }`}
                 />
               ))}
+            </div> */}
+          </div>
+
+          {/* Desktop: static flex row */}
+          <div className="hidden sm:flex items-center justify-center gap-10 lg:gap-16">
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform">3500+</div>
+              <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">студентов</div>
+            </div>
+            <div className="h-10 w-px bg-border/50" />
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform">3+</div>
+              <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">заведения</div>
+            </div>
+            <div className="h-10 w-px bg-border/50" />
+            <div className="text-center group">
+              <div className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform">1 система</div>
+              <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">вместо десяти</div>
             </div>
           </div>
-        </div>
+        </motion.div>
+
+
+  
+          {/* <div className="hidden lg:block relative mx-auto max-w-5xl h-[550px]">
+            <div
+              ref={sceneRef}
+              className="relative w-full h-full"
+            >
+
+              <motion.div 
+                initial={{ scale: 0, rotate: -20 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', damping: 15, stiffness: 100, delay: 0.4 }}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-[2.5rem] bg-white dark:bg-slate-900 shadow-[0_20px_50px_rgba(37,99,235,0.2)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-primary/10 flex items-center justify-center z-20 overflow-hidden"
+              >
+                <img src="/logo.svg" className="w-16 h-16" alt="Bilimtrack" />
+              </motion.div>
+
+    
+              {floatingCards.map((card, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
+                  className="floating-card absolute w-44 glass border-white/40 dark:border-slate-800/40 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.05)] p-4 transform-gpu transition-all duration-300 hover:shadow-2xl hover:border-primary/30 z-10"
+                  style={{
+                    ...card.desktop,
+                  }}
+                >
+                  <div className="text-[11px] font-bold text-primary mb-3 flex items-center gap-2 opacity-80 uppercase tracking-tight">
+                    <div className="bg-primary/10 p-1 rounded-md">
+                      <card.icon className="h-3.5 w-3.5" />
+                    </div>
+                    {card.label}
+                  </div>
+                  <div className="opacity-90">
+                    {card.content}
+                  </div>
+                </motion.div>
+              ))}
+
+    
+              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.03] dark:opacity-[0.07]">
+                <line x1="50%" y1="50%" x2="15%" y2="15%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="85%" y2="12%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="10%" y2="80%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="88%" y2="78%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="20%" y2="35%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="22%" y2="65%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+                <line x1="50%" y1="50%" x2="82%" y2="65%" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+              </svg>
+
+    
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(20)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1.5 h-1.5 bg-primary/20 rounded-full animate-pulse"
+                    style={{
+                      left: `${5 + Math.random() * 90}%`,
+                      top: `${5 + Math.random() * 90}%`,
+                      animationDelay: `${Math.random() * 5}s`,
+                      animationDuration: `${3 + Math.random() * 4}s`,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </div> */}
       </div>
     </section>
   );
 }
+

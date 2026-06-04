@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export function Footer() {
   return (
     <footer className="border-t bg-muted/50">
-      <div className="container mx-auto px-4 py-16">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -13,18 +13,14 @@ export function Footer() {
               </div>
               <span className="font-semibold text-xl">Bilimtrack</span>
             </div>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              Цифровая система управления обучением. Подключаем, обучаем
-              и сопровождаем — вам остаётся только учить.
-            </p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <a href="tel:+996552077970" className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <a href="tel:+996600051151" className="flex items-center gap-2 hover:text-foreground transition-colors">
                 <Phone className="h-4 w-4" />
-                +996 552 077 970
+                +996 600 051 151
               </a>
-              <a href="mailto:ourera.soft@gmail.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
+              <a href="mailto:bilimtrack@bashtup.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
                 <Mail className="h-4 w-4" />
-                ourera.soft@gmail.com
+                bilimtrack@bashtup.com
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />

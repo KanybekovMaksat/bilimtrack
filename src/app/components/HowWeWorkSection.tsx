@@ -50,10 +50,10 @@ export function HowWeWorkSection() {
         <section id="how-we-work" className="py-20 bg-muted/30">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight leading-[1.08] mb-4">
                         Как мы работаем
                     </h2>
-                    <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground">
+                    <p className="max-w-2xl mx-auto text-slate-500 text-base md:text-lg leading-relaxed">
                         От хаоса к полной цифровизации за одну неделю.
                         Вам не нужно ничего настраивать — мы делаем всё за вас.
                     </p>
@@ -140,6 +140,15 @@ export function HowWeWorkSection() {
                                 </div>
                             </CardContent>
                         </Card>
+                    </div>
+
+                    <div className="text-center mt-8">
+                        <a
+                            href="#demo"
+                            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 text-blue-600 font-semibold text-sm px-6 py-3 hover:bg-blue-100 transition-colors"
+                        >
+                            Посмотреть демо <ArrowRight className="h-4 w-4" />
+                        </a>
                     </div>
                 </div>
             </div>

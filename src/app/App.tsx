@@ -2,9 +2,13 @@ import { Header } from "./components/Header";
 import { HeroSection } from "./components/HeroSection";
 import { ProblemsSection } from "./components/ProblemsSection";
 import { FeaturesSection } from "./components/FeaturesSection";
-import { HowWeWorkSection } from "./components/HowWeWorkSection";
+import { AudienceSection } from "./components/AudienceSection";
 import { PricingSection } from "./components/PricingSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
+import { PerksSection } from "./components/PerksSection";
+import { TrustedSection } from "./components/TrustedSection";
+import { FAQSection } from "./components/FAQSection";
+import { FinalCTASection } from "./components/FinalCTASection";
 import { Footer } from "./components/Footer";
 import { PrivacyPage } from "./components/PrivacyPage";
 import { TermsPage } from "./components/TermsPage";
@@ -35,11 +39,13 @@ export default function App() {
       <Header />
       <main>
         <HeroSection />
-        <ProblemsSection />
         <FeaturesSection />
-        <HowWeWorkSection />
-        <PricingSection />
+        <ProblemsSection />
+        <TrustedSection />
         <TestimonialsSection />
+        <PricingSection />
+        <FinalCTASection />
+        <FAQSection />
       </main>
       <Footer />
     </div>

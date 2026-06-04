@@ -3,14 +3,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const testimonials = [
   {
-    content: "Bilimtrack полностью изменил то, как мы организуем учебный процесс. Раньше это был хаос из Excel таблиц, теперь всё в одном месте и доступно в пару кликов.",
+    content: "Bilimtrack полностью изменил то, как мы организуем учебный процесс. Раньше это был хаос из Excel таблиц, теперь все в одном месте и доступно в пару кликов.",
     author: "Рамзан Малабакиев",
     role: "Директор",
     company: "Курсы программирования UstazTech",
     avatar: "РМ"
   },
   {
-    content: "Как преподаватель, я наконец-то могу видеть полную картину по каждому студенту. Оценки, посещаемость, прогресс — всё под рукой. Это экономит огромное количество времени.",
+    content: "Как преподаватель, я наконец-то могу видеть полную картину по каждому студенту. Оценки, посещаемость, прогресс  все под рукой. Это экономит огромное количество времени.",
     author: "Саламат Канатбеков",
     role: "Преподаватель информатики",
     company: "Колледж КИТЭ",
@@ -28,14 +28,12 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-20 bg-muted/50">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10 lg:px-16">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
-            Доверяют образовательные учреждения
+                    <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight leading-[1.08]">
+          
+            Что о нас говорят?
           </h2>
-          <p className="max-w-2xl mx-auto text-base md:text-lg text-muted-foreground">
-            Узнайте, как Bilimtrack помогает преподавателям и администраторам управлять учебным процессом эффективнее.
-          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
